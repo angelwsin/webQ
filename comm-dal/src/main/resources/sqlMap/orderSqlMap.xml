@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+   
+<mapper namespace="org.comm.dal.mapper.OrderMapper">  
+    
+    
+    <insert id="insertOrder" parameterType="org.comm.dal.model.Order" useGeneratedKeys="true" keyColumn="id">  
+       insert into orderp(ptype,userId) values(#{pType},#{userId})
+    </insert>
+     
+    
+     
+    <select id="findOrderByPtypeOrUserId" parameterType="org.comm.dal.model.Order" resultType="org.comm.dal.model.Order">
+	select
+	id,
+	ptype  as  'pType',
+	userId
+	from orderp
+	<include refid="commWhere"/>
+    </select>
+ <sql id="commWhere">
+    <where>
+      <if test="pType!=null">ptype =#{pType}</if>
+      <if test="userId!=null"> and userId =#{userId} </if>
+    </where>
+ </sql>
+    
+</mapper>

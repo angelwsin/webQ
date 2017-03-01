@@ -121,6 +121,16 @@
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+	<groupId>javax.annotation</groupId>
+	<artifactId>javax.annotation-api</artifactId>
+	<version>1.2</version>
+</dependency>
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.4.0</version>
+</dependency>
 
     </dependencies>
   </dependencyManagement>
@@ -129,5 +139,6 @@
     <module>comm-dal</module>
     <module>biz-share</module>
     <module>web-home</module>
+    <module>comm-cache</module>
   </modules>
 </project>

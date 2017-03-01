@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+   
+<mapper namespace="org.comm.dal.mapper.ProductMapper">  
+    
+    
+    <insert id="insertProduct" parameterType="org.comm.dal.model.Product" useGeneratedKeys="true" keyColumn="id">  
+       insert into product(ptype,sum,version) values(#{pType},#{sum},#{version})
+    </insert>
+     
+    
+     
+    <update id="updateProduct" parameterType="int" >  
+       update product set sum = sum-1,version= version+1 where sum>0 and version = #{version}
+    </update>
+    
+    <select id="findProductByPtype"  parameterType="string"  resultType="org.comm.dal.model.Product">
+          select  id,
+          ptype as 'pType',
+          sum,
+          version
+          from product
+          where ptype=#{pType}
+    </select>
+ 
+    
+</mapper>

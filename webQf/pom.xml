@@ -140,5 +140,6 @@
     <module>biz-share</module>
     <module>web-home</module>
     <module>comm-cache</module>
+    <module>comm-mq</module>
   </modules>
 </project>
